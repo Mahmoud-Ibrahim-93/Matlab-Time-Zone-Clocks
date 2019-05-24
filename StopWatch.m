@@ -1,6 +1,6 @@
 clear
 clc
-delay=0.005; % delay in seconds
+delay=1; % delay in seconds
 TwelveHourPoints=43200;
 sec_scaling_factor=720;
 min_scaling_factor=sec_scaling_factor/60;
@@ -9,6 +9,7 @@ myfig=figure;
 sec=0;
 min=0;
 hour=0;
+text(-.6,-2.25,'Stop Wtch')
 while(ishandle(myfig))
     hold off % make a new drawing for each second 
     [x,y]=drawbackground('ored'); % make the background appear
@@ -26,6 +27,7 @@ while(ishandle(myfig))
     min=mod(min+min_scaling_factor,TwelveHourPoints); % make the min circulate every tic
     hour=mod(hour+hour_scaling_factor,TwelveHourPoints); % make the min circulate every tic
     text(-.4,-2.25,strcat('Time:',{' '},num2str(mod(floor(hour/(5*sec_scaling_factor)),60),'%02.f'),':',num2str(mod(floor(min/(sec_scaling_factor)),60),'%02.f'),':',num2str(mod(sec/sec_scaling_factor,60),'%02.f')))
+    text(-.4,2.25,'Stop Watch')
     pause(delay) % make a pause necessary for the refresh function
     drawnow
 end
