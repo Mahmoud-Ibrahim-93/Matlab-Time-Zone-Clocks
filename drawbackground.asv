@@ -1,4 +1,4 @@
-function [pointer_x_s,pointer_y_s,pointer_x_m,pointer_y_m,pointer_x_h,pointer_y_h]= drawbackground(style)
+function [pointer_x_s,pointer_y_s,pointer_x_m,pointer_y_m,pointer_x_h,pointer_]= drawbackground(style)
 theta=linspace(.5*pi,-1.5*pi,43200); % divide the 360 degrees of an hour into 12*60*60 part
 radius=2*ones(1,length(theta)); % make the radius matrix
 radiusPosition=1.8*ones(1,length(theta)); % the radius of hour labels
@@ -7,8 +7,6 @@ radiusPosition=1.8*ones(1,length(theta)); % the radius of hour labels
 a=plot(fram_x,frame_y,style); % plot the back ground
 [fram_x,frame_y]=pol2cart(theta,radius); % convert polar coordinates into cartesian
 [pointer_x_s,pointer_y_s]=pol2cart(theta,.95*radius); % convert polar coordinates into cartesian for second line
-[pointer_x_m,pointer_y_m]=pol2cart(theta,.8*radius);
-[pointer_x_h,pointer_y_h]=pol2cart(theta,.65*radius);
 
 % write the name of the hour
 for i =1:5
